@@ -65,6 +65,11 @@ export const constraints = (
   return true;
 };
 
+// """returns the keys, which are the variables in the CSP"""
+export const get_variables = (assignments: LooseObject<string>): string[] => {
+  return Object.keys(assignments);
+};
+
 // some values for testing
 const classes = ["cs108", "cs112", "cs212", "cs214"];
 export const variables = classes;

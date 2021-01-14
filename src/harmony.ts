@@ -1,8 +1,15 @@
 import { CSP, min_conflicts } from "csps";
-import { constraints, get_domains, get_neighbors, get_possible_domain_values } from "./helpers";
+import { LooseObject } from "csps/dist/interfaces";
+import {
+  constraints,
+  get_domains,
+  get_neighbors,
+  get_possible_domain_values,
+  get_variables,
+} from "./helpers";
 
 export const harmony = (
-  variables: string[],
+  assignments: LooseObject<string>,
   constraintFunction: (
     c1: string,
     c1Attr: string[],
@@ -11,6 +18,7 @@ export const harmony = (
   ) => boolean = constraints,
   attribute_list: string[][],
 ) => {
+  const variables = get_variables(assignments);
   const possible_domain_values = get_possible_domain_values(attribute_list);
   const domains = get_domains(variables, possible_domain_values);
   const neighbors = get_neighbors(variables);
