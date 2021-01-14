@@ -65,7 +65,18 @@ export const constraints = (
   return true;
 };
 
+type Assignments = LooseObject<string>;
+
 // """returns the keys, which are the variables in the CSP"""
-export const get_variables = (assignments: LooseObject<string>): string[] => {
+export const get_variables = (assignments: Assignments): string[] => {
   return Object.keys(assignments);
+};
+
+// Returns a list of faculty derived from the assignments.
+export const get_faculty = (assignments: Assignments) => {
+  const professorSet = new Set<string>();
+  Object.values(assignments).forEach((prof: string) => {
+    professorSet.add(prof);
+  });
+  return Array.from(professorSet);
 };

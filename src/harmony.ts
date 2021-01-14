@@ -2,6 +2,7 @@ import { CSP, min_conflicts } from "csps";
 import {
   constraints,
   get_domains,
+  get_faculty,
   get_neighbors,
   get_possible_domain_values,
   get_variables,
@@ -19,7 +20,9 @@ export const harmony = (
   attribute_list: string[][],
 ) => {
   const variables = get_variables(assignments);
-  const possible_domain_values = get_possible_domain_values(attribute_list);
+  const faculty = get_faculty(assignments);
+
+  const possible_domain_values = get_possible_domain_values([...attribute_list, faculty]);
   const domains = get_domains(variables, possible_domain_values);
   const neighbors = get_neighbors(variables);
 
