@@ -1,5 +1,4 @@
 import { CSP, min_conflicts } from "csps";
-import { LooseObject } from "csps/dist/interfaces";
 import {
   constraints,
   get_domains,
@@ -7,6 +6,7 @@ import {
   get_possible_domain_values,
   get_variables,
 } from "./helpers";
+import { LooseObject } from "./interfaces";
 
 export const harmony = (
   assignments: LooseObject<string>,

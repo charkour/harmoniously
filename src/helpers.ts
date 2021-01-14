@@ -1,4 +1,4 @@
-import { LooseObject } from "csps/dist/interfaces";
+import { LooseObject } from "./interfaces";
 
 // https://stackoverflow.com/a/39838385/9931154
 const flatMap = (f: Function, xs: any[]) => xs.reduce((acc: any, x: any) => acc.concat(f(x)), []);
@@ -69,14 +69,3 @@ export const constraints = (
 export const get_variables = (assignments: LooseObject<string>): string[] => {
   return Object.keys(assignments);
 };
-
-// some values for testing
-const classes = ["cs108", "cs112", "cs212", "cs214"];
-export const variables = classes;
-const faculty = ["norman", "vanderlinden", "adams"];
-const times = ["mwf800", "mwf900"];
-const rooms = ["nh253", "sb382"];
-const attribute_list = [times, rooms, faculty];
-const possible_domain_values = get_possible_domain_values(attribute_list);
-export const domains = get_domains(variables, possible_domain_values);
-export const neighbors = get_neighbors(variables);

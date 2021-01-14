@@ -1,4 +1,4 @@
-import { LooseObject } from "csps/dist/interfaces";
+import { LooseObject } from "./interfaces";
 
 export const user_constraints: LooseObject<string> = {
   cs100a: "meyer",
