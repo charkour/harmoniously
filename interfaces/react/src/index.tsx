@@ -1,3 +1,4 @@
+import confetti from 'canvas-confetti';
 import React, { FC, HTMLAttributes, ReactChild } from 'react';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -11,5 +12,20 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  * A custom Thing component. Neat!
  */
 export const Thing: FC<Props> = ({ children }) => {
-  return <div>{children || `the snozzberries taste like snozzberries`}</div>;
+  return (
+    <>
+      <div>{children || `the snozzberries taste like snozzberries`}</div>
+      <button
+        onClick={() =>
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+          })
+        }
+      >
+        Woohoo
+      </button>
+    </>
+  );
 };
