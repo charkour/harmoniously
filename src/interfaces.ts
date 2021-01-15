@@ -10,3 +10,14 @@
 export interface LooseObject<T> {
   [key: string]: T;
 }
+
+/**
+ * User defined constraints for a specific class.
+ *
+ * @export
+ * @interface ClassLimits
+ */
+export interface ClassLimits {
+  professor: string;
+  rooms: string[];
+}

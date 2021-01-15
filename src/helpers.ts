@@ -1,8 +1,7 @@
-import { LooseObject } from "./interfaces";
+import { ClassLimits, LooseObject } from "./interfaces";
 import {
   bio_lab_rooms,
   bio_rooms,
-  ClassLimits,
   cs_lab_rooms,
   cs_rooms,
   math_stat_rooms,

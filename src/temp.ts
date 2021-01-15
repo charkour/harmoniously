@@ -1,4 +1,4 @@
-import { LooseObject } from "./interfaces";
+import { ClassLimits, LooseObject } from "./interfaces";
 
 export const math_stat_only_rooms = ["nh251", "nh259", "nh276", "nh261", "nh295"];
 export const cs_only_rooms = ["sb372", "nh253", "sb010", "sb382", "hh336", "hh334", "sc203"];
@@ -30,11 +30,6 @@ export const times = [
   "tth830",
   "tth1030",
 ];
-
-export interface ClassLimits {
-  professor: string;
-  rooms: string[];
-}
 
 export const user_constraints: LooseObject<ClassLimits> = {
   cs100a: { professor: "meyer", rooms: cs_rooms },

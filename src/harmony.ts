@@ -7,8 +7,7 @@ import {
   get_possible_domain_values,
   get_variables,
 } from "./helpers";
-import { LooseObject } from "./interfaces";
-import { ClassLimits } from "./temp";
+import { ClassLimits, LooseObject } from "./interfaces";
 
 export const harmony = <T extends ClassLimits>(
   assignments: LooseObject<T>,
