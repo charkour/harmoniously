@@ -8,9 +8,10 @@ import {
   get_variables,
 } from "./helpers";
 import { LooseObject } from "./interfaces";
+import { ClassLimits } from "./temp";
 
-export const harmony = (
-  assignments: LooseObject<string>,
+export const harmony = <T extends ClassLimits>(
+  assignments: LooseObject<T>,
   constraintFunction: (
     c1: string,
     c1Attr: string[],
@@ -18,6 +19,7 @@ export const harmony = (
     c2Attr: string[],
   ) => boolean = constraints,
   attribute_list: string[][],
+  debug: boolean = false,
 ) => {
   const variables = get_variables(assignments);
   const faculty = get_faculty(assignments);
@@ -27,6 +29,12 @@ export const harmony = (
   const neighbors = get_neighbors(variables);
 
   const aCSP = new CSP<string>(variables, domains, neighbors, constraintFunction);
+
+  if (debug) {
+    console.log(variables);
+    console.log(domains);
+    console.log(neighbors);
+  }
 
   // run min_conflicts on problem
   const res = min_conflicts(aCSP);
