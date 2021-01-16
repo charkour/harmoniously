@@ -3,6 +3,7 @@ import { ClassLimits, LooseObject } from "./interfaces";
 // TODO: move this to tests once logic is mostly done.
 export const math_stat_only_rooms = ["nh251", "nh259", "nh276", "nh261", "nh295"];
 export const cs_only_rooms = ["sb372", "nh253", "sb010", "sb382", "hh336", "hh334", "sc203"];
+// NOTE: it fails to find a solution when there are is not an extra room.
 export const both = ["nh064", "a"];
 export const cs_lab_rooms = ["sb337", "sb354"];
 export const bio_rooms = ["sb256", "sb276", "cfaud", "hc300", "sb103"];
@@ -33,6 +34,7 @@ export const times = [
 ];
 
 // TODO: make professor field an array.
+// TODO: add more fields to ClassLimits that are appropriate.
 export const user_constraints: LooseObject<ClassLimits> = {
   cs100a: { professor: "meyer", rooms: cs_rooms },
   cs104a: { professor: "schuurman", rooms: cs_rooms },
