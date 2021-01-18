@@ -1,4 +1,4 @@
-import { flat } from "./coolHelpers.bs";
+import { flat } from "./coolHelpers.gen";
 import { ClassLimits, LooseObject } from "./interfaces";
 import {
   bio_lab_rooms,
@@ -6,7 +6,7 @@ import {
   cs_lab_rooms,
   cs_rooms,
   math_stat_rooms,
-  user_constraints,
+  user_constraints
 } from "./temp";
 
 // https://stackoverflow.com/a/39838385/9931154
