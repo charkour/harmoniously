@@ -3,3 +3,7 @@
 node_modules
 .cache
 dist
+.merlin
+lib
+*.bs.js
+.bsb.lock

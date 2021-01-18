@@ -15,6 +15,8 @@
     "build": "tsdx build",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
+    "re:build": "bsb -make-world -clean-world",
+    "re:watch": "bsb -make-world -clean-world -w",
     "size": "size-limit",
     "start": "tsdx watch",
     "test": "tsdx test"
@@ -29,6 +31,8 @@
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.9.1",
+    "bs-platform": "8.4.2",
+    "gentype": "3.42.0",
     "husky": "^4.3.7",
     "size-limit": "^4.9.1",
     "tsdx": "^0.14.1",
