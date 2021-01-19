@@ -1,4 +1,3 @@
-import { flat } from "./coolHelpers.gen";
 import { ClassLimits, LooseObject } from "./interfaces";
 import {
   bio_lab_rooms,
@@ -6,16 +5,16 @@ import {
   cs_lab_rooms,
   cs_rooms,
   math_stat_rooms,
-  user_constraints
+  user_constraints,
 } from "./temp";
 
 // https://stackoverflow.com/a/39838385/9931154
 const flatMap = (f: Function, xs: any[]) => xs.reduce((acc: any, x: any) => acc.concat(f(x)), []);
 
-// /// https://stackoverflow.com/a/60677733/9931154
-// const flat = (arr: any[]) => {
-//   return [].concat.apply([], arr);
-// };
+/// https://stackoverflow.com/a/60677733/9931154
+const flat = (arr: any[]) => {
+  return [].concat.apply([], arr);
+};
 
 // https://stackoverflow.com/a/43053803/9931154
 const cartesian = <K, T extends Array<any>>(...a: T): K =>
