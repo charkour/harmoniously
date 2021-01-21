@@ -18,6 +18,22 @@
   "author": "Charles Kornoelje",
   "main": "index.js",
   "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "fix": "prettier package.json",
+    "lint": "lerna run lint",
+    "publish": "lerna publish",
     "test": "lerna run test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run lint"
+    }
+  },
+  "devDependencies": {
+    "husky": "4.3.8",
+    "lerna": "3.22.1",
+    "prettier": "2.2.1",
+    "prettier-plugin-packagejson": "2.2.9"
   }
 }
