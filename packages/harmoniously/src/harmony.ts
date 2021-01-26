@@ -1,11 +1,11 @@
-import { CSP, min_conflicts } from "csps";
+import { CSP, min_conflicts as minConflicts } from "csps";
 import {
   constraints,
-  get_domains,
-  get_faculty,
-  get_neighbors,
-  get_possible_domain_values,
-  get_variables,
+  getDomains,
+  getFaculty,
+  getNeighbors,
+  getPossibleDomainValues,
+  getVariables,
 } from "./helpers";
 import { ClassLimits, LooseObject } from "./interfaces";
 
@@ -20,12 +20,12 @@ export const harmony = <T extends ClassLimits>(
   attribute_list: string[][],
   debug: boolean = false,
 ) => {
-  const variables = get_variables(assignments);
-  const faculty = get_faculty(assignments);
+  const variables = getVariables(assignments);
+  const faculty = getFaculty(assignments);
 
-  const possible_domain_values = get_possible_domain_values([...attribute_list, faculty]);
-  const domains = get_domains(variables, possible_domain_values);
-  const neighbors = get_neighbors(variables);
+  const possible_domain_values = getPossibleDomainValues([...attribute_list, faculty]);
+  const domains = getDomains(variables, possible_domain_values);
+  const neighbors = getNeighbors(variables);
 
   const aCSP = new CSP<string>(variables, domains, neighbors, constraintFunction);
 
@@ -35,7 +35,7 @@ export const harmony = <T extends ClassLimits>(
     console.log(neighbors);
   }
 
-  // run min_conflicts on problem
-  const res = min_conflicts(aCSP);
-  console.log(res);
+  const res = minConflicts(aCSP);
+
+  debug && console.log(res);
 };

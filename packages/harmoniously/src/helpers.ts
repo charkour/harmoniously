@@ -1,80 +1,58 @@
 import { ClassLimits, LooseObject } from "./interfaces";
-import {
-  bio_lab_rooms,
-  bio_rooms,
-  cs_lab_rooms,
-  cs_rooms,
-  math_stat_rooms,
-  user_constraints,
-} from "./temp";
+import { bioLabRooms, bioRooms, csLabRooms, csRooms, mathStatRooms, userConstraints } from "./temp";
+import { cartesian } from "./utils";
 
-// https://stackoverflow.com/a/39838385/9931154
-const flatMap = (f: Function, xs: any[]) => xs.reduce((acc: any, x: any) => acc.concat(f(x)), []);
-
-/// https://stackoverflow.com/a/60677733/9931154
-const flat = (arr: any[]) => {
-  return [].concat.apply([], arr);
-};
-
-// https://stackoverflow.com/a/43053803/9931154
-const cartesian = <K, T extends Array<any>>(...a: T): K =>
-  a.reduce((a, b) => flatMap((d: T) => b.map((e: T) => flat([d, e])), a));
-
-export const get_possible_domain_values = (attribute_list: string[][]): string[][] => {
-  return cartesian<string[][], string[][]>(...attribute_list);
+export const getPossibleDomainValues = (attributeList: string[][]): string[][] => {
+  return cartesian<string[][], string[][]>(...attributeList);
 };
 
 //     """Based on the class, return its valid room assignments"""
 //     # TODO: is there a better way to write this?
-const check_room = (a_class: string) => {
-  if (a_class.startsWith("l")) {
-    if (a_class.startsWith("lcs")) {
-      return cs_lab_rooms;
+const checkRoom = (aClass: string) => {
+  if (aClass.startsWith("l")) {
+    if (aClass.startsWith("lcs")) {
+      return csLabRooms;
     } else {
-      return bio_lab_rooms;
+      return bioLabRooms;
     }
-  } else if (a_class.startsWith("cs") || a_class.startsWith("data") || a_class.startsWith("idis")) {
-    return cs_rooms;
-  } else if (a_class.startsWith("stat") || a_class.startsWith("math")) {
-    return math_stat_rooms;
+  } else if (aClass.startsWith("cs") || aClass.startsWith("data") || aClass.startsWith("idis")) {
+    return csRooms;
+  } else if (aClass.startsWith("stat") || aClass.startsWith("math")) {
+    return mathStatRooms;
   } else {
-    // a_class.startsWith("bio"):
-    return bio_rooms;
+    // aClass.startsWith("bio"):
+    return bioRooms;
   }
 };
 
 //     """Limit the domain for a class to only consist of possible
 //     (time, room, faculty) combinations where faculty is the same
 //     on the assignment"""
-const respect_assignments = (
-  a_class: string,
-  possible_value_tuples: string[][],
-  user_constraints: LooseObject<ClassLimits>,
+const respectAssignments = (
+  aClass: string,
+  possibleValueTuples: string[][],
+  userConstraints: LooseObject<ClassLimits>,
 ) => {
-  const prof = user_constraints[a_class].professor;
-  const valid_rooms = check_room(a_class);
-  const limited_domain = possible_value_tuples.filter((tuple: string[]) => {
-    return tuple[2] === prof && valid_rooms.includes(tuple[1]);
+  const prof = userConstraints[aClass].professor;
+  const validRooms = checkRoom(aClass);
+  const limitedDomain = possibleValueTuples.filter((tuple: string[]) => {
+    return tuple[2] === prof && validRooms.includes(tuple[1]);
   });
   //     # TODO: potentially optimize code based on heuristic of once a class slot is picked,
   //     # remove it from the possible domains for other classes. Would require a copy of the list
   //     # to modify and copy over if the CSP has to back track.
-  return limited_domain;
+  return limitedDomain;
 };
 
-export const get_domains = <T extends Array<string>>(variables: T, possible_domain_values: T[]) => {
+export const getDomains = <T extends Array<string>>(variables: T, possibleDomainValues: T[]) => {
   const domains: LooseObject<T[]> = {};
   variables.forEach((variable: string) => {
-    domains[variable] = respect_assignments(
-      variable,
-      possible_domain_values,
-      user_constraints,
-    ) as T[];
+    domains[variable] = respectAssignments(variable, possibleDomainValues, userConstraints) as T[];
   });
   return domains;
 };
 
-export const get_neighbors = <T extends Array<string>>(variables: T) => {
+export const getNeighbors = <T extends Array<string>>(variables: T) => {
   const neighbors: LooseObject<T> = {};
   variables.forEach((variable: string) => {
     neighbors[variable] = variables.filter((neighbor: string) => {
@@ -118,12 +96,12 @@ export const constraints = (
 type Assignments<T> = LooseObject<T>;
 
 // """returns the keys, which are the variables in the CSP"""
-export const get_variables = <T>(assignments: Assignments<T>): string[] => {
+export const getVariables = <T>(assignments: Assignments<T>): string[] => {
   return Object.keys(assignments);
 };
 
 // Returns a list of faculty derived from the assignments.
-export const get_faculty = <T extends { professor: string }>(assignments: Assignments<T>) => {
+export const getFaculty = <T extends { professor: string }>(assignments: Assignments<T>) => {
   const professorSet = new Set<string>();
   Object.values(assignments).forEach(({ professor }) => {
     professorSet.add(professor);

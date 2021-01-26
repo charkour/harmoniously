@@ -1,8 +1,8 @@
 // for testing
 import { harmony } from "./harmony";
-import { rooms, times, user_constraints } from "./temp";
+import { rooms, times, userConstraints } from "./temp";
 
-harmony(user_constraints, undefined, [times, rooms], false);
+harmony(userConstraints, undefined, [times, rooms], true);
 
 // export
 export * from "./harmony";
