@@ -17,14 +17,14 @@ export const harmony = <T extends ClassLimits>(
     c2: string,
     c2Attr: string[],
   ) => boolean = constraints,
-  attribute_list: string[][],
+  attributeList: string[][],
   debug: boolean = false,
 ) => {
   const variables = getVariables(assignments);
   const faculty = getFaculty(assignments);
 
-  const possible_domain_values = getPossibleDomainValues([...attribute_list, faculty]);
-  const domains = getDomains(variables, possible_domain_values);
+  const possibleDomainValues = getPossibleDomainValues([...attributeList, faculty]);
+  const domains = getDomains(variables, possibleDomainValues);
   const neighbors = getNeighbors(variables);
 
   const aCSP = new CSP<string>(variables, domains, neighbors, constraintFunction);

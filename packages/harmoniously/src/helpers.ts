@@ -2,8 +2,13 @@ import { ClassLimits, LooseObject } from "./interfaces";
 import { bioLabRooms, bioRooms, csLabRooms, csRooms, mathStatRooms, userConstraints } from "./temp";
 import { cartesian } from "./utils";
 
+// type ArrOfArrOfString = string[][];
+// type ArrayElement<A> = A extends readonly (infer T)[] ? T : never;
+// type thing = ArrayElement<ArrOfArrOfString>;
+
 export const getPossibleDomainValues = (attributeList: string[][]): string[][] => {
-  return cartesian<string[][], string[][]>(...attributeList);
+  // return cartesian<string[][]>(attributeList);
+  return cartesian(attributeList);
 };
 
 //     """Based on the class, return its valid room assignments"""
