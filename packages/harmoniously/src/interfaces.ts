@@ -20,4 +20,16 @@ export interface LooseObject<T> {
 export interface ClassLimits {
   professor: string;
   rooms: string[];
+  times: string[];
 }
+
+export interface ClassAttributes {
+  professor: string;
+  room: string;
+  time: string;
+}
+// export interface ClassAttributes extends Array<string> {
+//   professor: string;
+//   room: string;
+//   time: string;
+// }
