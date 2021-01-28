@@ -18,9 +18,8 @@
   "author": "Charles Kornoelje",
   "main": "index.js",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap --force-local",
     "build": "lerna run build",
-    "fix": "prettier package.json",
     "lint": "lerna run lint",
     "publish": "lerna publish",
     "test": "lerna run test"

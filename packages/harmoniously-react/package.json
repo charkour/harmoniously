@@ -33,7 +33,8 @@
     "trailingComma": "es5"
   },
   "dependencies": {
-    "canvas-confetti": "1.3.2"
+    "canvas-confetti": "1.3.2",
+    "harmoniously": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
