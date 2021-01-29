@@ -1,4 +1,4 @@
-import { ClassLimits, LooseObject } from "./interfaces";
+import { Assignments } from "./interfaces";
 
 // TODO: move this to tests once logic is mostly done.
 export const mathStatOnlyRooms = ["nh251", "nh259", "nh276", "nh261", "nh295"];
@@ -35,7 +35,7 @@ export const times = [
 
 // TODO: make professor field an array.
 // TODO: add more fields to ClassLimits that are appropriate.
-export const userConstraints: LooseObject<ClassLimits> = {
+export const userConstraints: Assignments = {
   cs100a: { times, professor: "meyer", rooms: csRooms },
   cs104a: { times, professor: "schuurman", rooms: csRooms },
   cs104b: { times, professor: "schuurman", rooms: csRooms },

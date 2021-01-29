@@ -1,9 +1,9 @@
 import { CSP, min_conflicts as minConflicts } from "csps";
 import { constraints, getNeighbors, getPossibleDomainValues, getVariables } from "./helpers";
-import { ClassLimits, LooseObject } from "./interfaces";
+import { Assignments } from "./interfaces";
 
 const harmony = (
-  assignments: LooseObject<ClassLimits>,
+  assignments: Assignments,
   constraintFunction: (
     c1: string,
     c1Attr: string[],

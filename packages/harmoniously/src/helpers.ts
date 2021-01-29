@@ -1,13 +1,12 @@
-import { ClassLimits, LooseObject } from "./interfaces";
+import { Assignments, LooseObject } from "./interfaces";
 import { cartesian } from "./utils";
 
 /**
  * TODO: update this.
  * Get the cartesian product of all possible attribute tuples.
- * @param  {string[][]} attributeList
- * @returns {string[][]}
+
  */
-export const getPossibleDomainValues = (assignments: LooseObject<ClassLimits>) => {
+export const getPossibleDomainValues = (assignments: Assignments) => {
   // const possibleDomainValues: LooseObject<ClassAttributes[]> = {};
   const possibleDomainValues: LooseObject<string[][]> = {};
   getVariables(assignments).forEach((variable: string) => {
@@ -66,12 +65,12 @@ export const constraints = (
 };
 
 // """returns the keys, which are the variables in the CSP"""
-export const getVariables = (assignments: LooseObject<ClassLimits>): string[] => {
+export const getVariables = (assignments: Assignments): string[] => {
   return Object.keys(assignments);
 };
 
 // Returns a list of faculty derived from the assignments.
-export const getFaculty = (assignments: LooseObject<ClassLimits>) => {
+export const getFaculty = (assignments: Assignments) => {
   const professorSet = new Set<string>();
   Object.values(assignments).forEach(({ professor }) => {
     professorSet.add(professor);

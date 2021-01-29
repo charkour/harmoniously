@@ -33,3 +33,5 @@ export interface ClassAttributes {
 //   room: string;
 //   time: string;
 // }
+
+export type Assignments = LooseObject<ClassLimits>;
