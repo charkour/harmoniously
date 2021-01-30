@@ -18,8 +18,9 @@
   "author": "Charles Kornoelje",
   "main": "index.js",
   "scripts": {
-    "bootstrap": "lerna bootstrap --force-local",
+    "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
+    "clean": "learn clean",
     "lint": "lerna run lint",
     "publish": "lerna publish",
     "test": "lerna run test"
