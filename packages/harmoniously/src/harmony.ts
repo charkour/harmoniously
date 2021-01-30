@@ -2,7 +2,7 @@ import { CSP, min_conflicts as minConflicts } from "csps";
 import { constraints, getNeighbors, getPossibleDomainValues, getVariables } from "./helpers";
 import { Assignments } from "./interfaces";
 
-const harmony = (
+export const harmony = (
   assignments: Assignments,
   constraintFunction: (
     c1: string,
@@ -28,5 +28,3 @@ const harmony = (
 
   return res;
 };
-
-export default harmony;

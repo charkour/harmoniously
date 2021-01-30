@@ -1,5 +1,5 @@
 // // for testing
-// import harmony from "./harmony";
+// import { harmony } from "./harmony";
 // import { userConstraints } from "./temp";
 
 // const res = harmony(userConstraints, undefined, false);
