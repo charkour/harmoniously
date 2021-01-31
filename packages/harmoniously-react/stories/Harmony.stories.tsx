@@ -4,7 +4,7 @@ import React from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
 import Button from 'rsuite/lib/Button';
 import { userConstraints, userConstraintsSmall } from '../../shared/shared';
-import { Harmony, Props } from '../src';
+import { CustomButtonProps, CustomResultProps, Harmony, Props } from '../src';
 
 const meta: Meta = {
   title: 'Welcome',
@@ -32,12 +32,16 @@ export const Custom = Template.bind({});
 export const NoData = Template.bind({});
 export const ManyData = Template.bind({});
 
-const ButtonThing = (onClick: () => void) => {
+const CustomButton = ({ onClick }: CustomButtonProps) => {
   return (
     <Button appearance="primary" onClick={onClick}>
       Find A Schedule
     </Button>
   );
+};
+
+const CustomResult = (props: CustomResultProps) => {
+  return <></>;
 };
 
 Default.args = {
@@ -47,11 +51,15 @@ Default.args = {
 Custom.args = {
   assignments: userConstraintsSmall,
   autoRun: true,
-  button: ButtonThing, // equivalent to <Harmony button={ButtonThing}>
+  button: CustomButton, // equivalent to <Harmony button={CustomButton}>
   header: <h1>Schedulizer</h1>,
   footer: (
     <small>
-      Powered by <code>csps</code>!
+      Powered by{' '}
+      <a href="https://github.com/charkour/csps">
+        <code>csps</code>
+      </a>
+      !!!
     </small>
   ),
 };

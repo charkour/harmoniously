@@ -2,6 +2,7 @@ import confetti from 'canvas-confetti';
 import { Assignments } from 'harmoniously';
 import React, { HTMLAttributes, ReactChildren } from 'react';
 import { useHarmony } from './hooks';
+import { CustomButtonProps, CustomResultProps } from './types';
 
 // TODO: document!
 export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -13,8 +14,8 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
    * @memberof Props
    */
   autoRun?: boolean;
-  button?: (onClick: () => void) => JSX.Element;
-  // results?: () => JSX.Element;
+  button?: (props: CustomButtonProps) => JSX.Element;
+  result?: (props: CustomResultProps) => JSX.Element;
   header?: ReactChildren;
   footer?: ReactChildren;
 }
@@ -30,38 +31,59 @@ export const Harmony: React.VFC<Props> = ({
   assignments,
   autoRun = false,
   button,
+  result,
 }) => {
-  const { findSchedule, loading, res } = useHarmony(assignments, autoRun);
+  const { findSchedule, loading, res, runCount } = useHarmony(
+    assignments,
+    autoRun
+  );
 
-  // TODO: Extract default components into own file.
   return (
     <>
-      {header || <h1>🎶 Harmoniously</h1>}
+      {header || (
+        <h1>
+          <span role="img" aria-label="musical notes">
+            🎶
+          </span>{' '}
+          Harmoniously
+        </h1>
+      )}
       <div>
         {assignments === undefined ? (
           <>Error: No schedule assignment constraints provided</>
         ) : (
           <>
             {button ? (
-              button(findSchedule)
+              button({ onClick: findSchedule })
             ) : (
               <button onClick={findSchedule}>Find Schedule</button>
             )}
             <div>
-              <b>Results: </b>
-              {loading ? (
-                'loading...'
-              ) : (
+              {runCount > 0 && (
                 <>
-                  {res === undefined
-                    ? 'no solution'
-                    : confetti({
-                        particleCount: 100,
-                        spread: 70,
-                        origin: { y: 0.6 },
-                      }) && JSON.stringify(res)}
+                  {result ? (
+                    result({ loading, res })
+                  ) : (
+                    <>
+                      <b>Results: </b>
+                      {loading ? (
+                        'loading...'
+                      ) : (
+                        <>
+                          {res === undefined
+                            ? 'no non-conflicting schedule found'
+                            : confetti({
+                                particleCount: 100,
+                                spread: 70,
+                                origin: { y: 0.6 },
+                              }) && JSON.stringify(res)}
+                        </>
+                      )}
+                    </>
+                  )}
                 </>
               )}
+              <div>Run Count: {runCount}</div>
             </div>
           </>
         )}
@@ -77,3 +99,6 @@ export const Harmony: React.VFC<Props> = ({
     </>
   );
 };
+
+export * from './hooks';
+export * from './types';
