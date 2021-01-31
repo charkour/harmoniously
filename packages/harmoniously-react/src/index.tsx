@@ -1,6 +1,7 @@
 import confetti from 'canvas-confetti';
-import { Assignments, harmony, LooseObject } from 'harmoniously';
+import { Assignments } from 'harmoniously';
 import React, { HTMLAttributes, ReactChildren } from 'react';
+import { useHarmony } from './hooks';
 
 // TODO: document!
 export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -30,47 +31,38 @@ export const Harmony: React.VFC<Props> = ({
   autoRun = false,
   button,
 }) => {
-  // TODO: convert this too a hook.
-  const [res, setRes] = React.useState<LooseObject<string[]> | undefined>(
-    undefined
-  );
-  const [loading, setLoading] = React.useState(false);
-
-  React.useEffect(() => {
-    if (autoRun) {
-      findSchedule();
-    }
-  }, []);
-
-  const findSchedule = React.useCallback(() => {
-    setLoading(true);
-    const result = harmony(assignments, undefined, undefined);
-    setRes(result);
-    setLoading(false);
-  }, []);
+  const { findSchedule, loading, res } = useHarmony(assignments, autoRun);
 
   // TODO: Extract default components into own file.
   return (
     <>
       {header || <h1>🎶 Harmoniously</h1>}
-      {button ? (
-        button(findSchedule)
-      ) : (
-        <button onClick={findSchedule}>Find Schedule</button>
-      )}
       <div>
-        <b>Results: </b>
-        {loading ? (
-          'loading...'
+        {assignments === undefined ? (
+          <>Error: No schedule assignment constraints provided</>
         ) : (
           <>
-            {res === undefined
-              ? 'no solution'
-              : confetti({
-                  particleCount: 100,
-                  spread: 70,
-                  origin: { y: 0.6 },
-                }) && JSON.stringify(res)}
+            {button ? (
+              button(findSchedule)
+            ) : (
+              <button onClick={findSchedule}>Find Schedule</button>
+            )}
+            <div>
+              <b>Results: </b>
+              {loading ? (
+                'loading...'
+              ) : (
+                <>
+                  {res === undefined
+                    ? 'no solution'
+                    : confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                      }) && JSON.stringify(res)}
+                </>
+              )}
+            </div>
           </>
         )}
       </div>
