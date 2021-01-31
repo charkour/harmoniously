@@ -1,4 +1,3 @@
-import confetti from 'canvas-confetti';
 import { Assignments } from 'harmoniously';
 import React, { HTMLAttributes, ReactChildren } from 'react';
 import { useHarmony } from './hooks';
@@ -18,6 +17,8 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   result?: (props: CustomResultProps) => JSX.Element;
   header?: ReactChildren;
   footer?: ReactChildren;
+  showRunCount?: boolean;
+  confetti: boolean;
 }
 
 // Please do not use types off of a default export module or else Storybook Docs will suffer.
@@ -32,10 +33,13 @@ export const Harmony: React.VFC<Props> = ({
   autoRun = false,
   button,
   result,
+  showRunCount = false,
+  confetti = true,
 }) => {
   const { findSchedule, loading, res, runCount } = useHarmony(
     assignments,
-    autoRun
+    autoRun,
+    confetti
   );
 
   return (
@@ -72,18 +76,14 @@ export const Harmony: React.VFC<Props> = ({
                         <>
                           {res === undefined
                             ? 'no non-conflicting schedule found'
-                            : confetti({
-                                particleCount: 100,
-                                spread: 70,
-                                origin: { y: 0.6 },
-                              }) && JSON.stringify(res)}
+                            : JSON.stringify(res)}
                         </>
                       )}
                     </>
                   )}
                 </>
               )}
-              <div>Run Count: {runCount}</div>
+              {showRunCount && <div>Run Count: {runCount}</div>}
             </div>
           </>
         )}

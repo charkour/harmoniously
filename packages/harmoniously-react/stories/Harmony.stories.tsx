@@ -3,6 +3,7 @@ import React from 'react';
 // Provides nice styles for storybook demos.
 import 'rsuite/dist/styles/rsuite-default.css';
 import Button from 'rsuite/lib/Button';
+import Loader from 'rsuite/lib/Loader';
 import { userConstraints, userConstraintsSmall } from '../../shared/shared';
 import { CustomButtonProps, CustomResultProps, Harmony, Props } from '../src';
 
@@ -41,7 +42,22 @@ const CustomButton = ({ onClick }: CustomButtonProps) => {
 };
 
 const CustomResult = (props: CustomResultProps) => {
-  return <></>;
+  const { loading, res } = props;
+  return (
+    <>
+      {loading ? (
+        <div>
+          <Loader /> loading...
+        </div>
+      ) : (
+        <div>
+          {res === undefined
+            ? 'no non-conflicting schedule found! oh no'
+            : JSON.stringify(res, null, 2)}
+        </div>
+      )}
+    </>
+  );
 };
 
 Default.args = {
@@ -62,10 +78,14 @@ Custom.args = {
       !!!
     </small>
   ),
+  result: CustomResult,
 };
 
 NoData.args = {};
 
 ManyData.args = {
   assignments: userConstraints,
+  result: CustomResult,
+  showRunCount: true,
+  confetti: false,
 };
