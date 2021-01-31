@@ -3,7 +3,7 @@ import React from 'react';
 // Provides nice styles for storybook demos.
 import 'rsuite/dist/styles/rsuite-default.css';
 import Button from 'rsuite/lib/Button';
-import { userConstraints } from '../../shared/shared';
+import { userConstraints, userConstraintsSmall } from '../../shared/shared';
 import { Harmony, Props } from '../src';
 
 const meta: Meta = {
@@ -30,8 +30,9 @@ const Template: Story<Props> = (args: Props) => <Harmony {...args} />;
 export const Default = Template.bind({});
 export const Custom = Template.bind({});
 export const NoData = Template.bind({});
+export const ManyData = Template.bind({});
 
-const ButtonThing = (onClick) => {
+const ButtonThing = (onClick: () => void) => {
   return (
     <Button appearance="primary" onClick={onClick}>
       Find A Schedule
@@ -39,10 +40,12 @@ const ButtonThing = (onClick) => {
   );
 };
 
-Default.args = {};
+Default.args = {
+  assignments: userConstraintsSmall,
+};
 
 Custom.args = {
-  assignments: userConstraints,
+  assignments: userConstraintsSmall,
   autoRun: true,
   button: ButtonThing, // equivalent to <Harmony button={ButtonThing}>
   header: <h1>Schedulizer</h1>,
@@ -54,3 +57,7 @@ Custom.args = {
 };
 
 NoData.args = {};
+
+ManyData.args = {
+  assignments: userConstraints,
+};

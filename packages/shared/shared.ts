@@ -35,12 +35,16 @@ export const times = [
 
 // TODO: make professor field an array.
 // TODO: add more fields to ClassLimits that are appropriate.
-export const userConstraints: Assignments = {
+export const userConstraintsSmall: Assignments = {
   cs100a: { times, professor: "meyer", rooms: csRooms },
   cs104a: { times, professor: "schuurman", rooms: csRooms },
   cs104b: { times, professor: "schuurman", rooms: csRooms },
   cs104c: { times, professor: "schuurman", rooms: csRooms },
   lcs104a: { times, professor: "sykes", rooms: csLabRooms },
+};
+
+export const userConstraints: Assignments = {
+  ...userConstraintsSmall,
   lcs104b: { times, professor: "schuurman", rooms: csLabRooms },
   lcs104c: { times, professor: "sykes", rooms: csLabRooms },
   lcs104d: { times, professor: "schuurman", rooms: csLabRooms },
