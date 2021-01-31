@@ -1,9 +1,9 @@
 import confetti from 'canvas-confetti';
 import { Assignments, harmony, LooseObject } from 'harmoniously';
-import React, { HTMLAttributes, ReactChild } from 'react';
+import React, { HTMLAttributes, ReactChildren } from 'react';
+
+// TODO: document!
 export interface Props extends HTMLAttributes<HTMLDivElement> {
-  /** custom content */
-  children?: ReactChild;
   assignments: Assignments;
   /**
    * Will aromatically find a schedule if true.
@@ -12,6 +12,10 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
    * @memberof Props
    */
   autoRun?: boolean;
+  button?: (onClick: () => void) => JSX.Element;
+  // results?: () => JSX.Element;
+  header?: ReactChildren;
+  footer?: ReactChildren;
 }
 
 // Please do not use types off of a default export module or else Storybook Docs will suffer.
@@ -19,10 +23,12 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 /**
  * A custom Thing component. Neat!
  */
-export const Harmony: React.FC<Props> = ({
-  children,
+export const Harmony: React.VFC<Props> = ({
+  header,
+  footer,
   assignments,
-  autoRun,
+  autoRun = false,
+  button,
 }) => {
   // TODO: convert this too a hook.
   const [res, setRes] = React.useState<LooseObject<string[]> | undefined>(
@@ -43,10 +49,15 @@ export const Harmony: React.FC<Props> = ({
     setLoading(false);
   }, []);
 
+  // TODO: Extract default components into own file.
   return (
     <>
-      <div>{children}</div>
-      <button onClick={findSchedule}>Find Schedule</button>
+      {header || <h1>🎶 Harmoniously</h1>}
+      {button ? (
+        button(findSchedule)
+      ) : (
+        <button onClick={findSchedule}>Find Schedule</button>
+      )}
       <div>
         <b>Results: </b>
         {loading ? (
@@ -63,6 +74,14 @@ export const Harmony: React.FC<Props> = ({
           </>
         )}
       </div>
+      {footer || (
+        <small>
+          powered by{' '}
+          <a href="https://github.com/charkour/csps">
+            <code>csps</code>
+          </a>
+        </small>
+      )}
     </>
   );
 };
