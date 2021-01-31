@@ -1,0 +1,11 @@
+{
+  "name": "shared",
+  "version": "0.0.1",
+  "description": "shared values for dev",
+  "license": "ISC",
+  "author": "Charles Kornoelje <charleskornoelje@gmail.com>",
+  "main": "shared.ts",
+  "devDependencies": {
+    "core-js": "3.8.3"
+  }
+}

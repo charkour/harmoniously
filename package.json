@@ -21,6 +21,7 @@
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "clean": "learn clean",
+    "create": "lerna create",
     "lint": "lerna run lint",
     "publish": "lerna publish",
     "test": "lerna run test"
