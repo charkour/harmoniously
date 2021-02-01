@@ -18,7 +18,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   header?: ReactChildren;
   footer?: ReactChildren;
   showRunCount?: boolean;
-  confetti: boolean;
+  confetti?: boolean;
 }
 
 // Please do not use types off of a default export module or else Storybook Docs will suffer.
