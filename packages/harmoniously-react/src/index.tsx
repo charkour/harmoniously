@@ -1,5 +1,5 @@
 import { Assignments } from 'harmoniously';
-import React, { HTMLAttributes, ReactChildren } from 'react';
+import React, { HTMLAttributes, ReactNode } from 'react';
 import { useHarmony } from './hooks';
 import { CustomButtonProps, CustomResultProps } from './types';
 
@@ -15,8 +15,8 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   autoRun?: boolean;
   button?: (props: CustomButtonProps) => JSX.Element;
   result?: (props: CustomResultProps) => JSX.Element;
-  header?: ReactChildren;
-  footer?: ReactChildren;
+  header?: ReactNode;
+  footer?: ReactNode;
   showRunCount?: boolean;
   confetti?: boolean;
 }

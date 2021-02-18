@@ -4,7 +4,7 @@ import React from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
 import Button from 'rsuite/lib/Button';
 import Loader from 'rsuite/lib/Loader';
-import { userConstraints, userConstraintsSmall } from '../../shared/shared';
+import { userConstraints, userConstraintsSmall } from '../../../shared/shared';
 import { CustomButtonProps, CustomResultProps, Harmony, Props } from '../src';
 
 const meta: Meta = {

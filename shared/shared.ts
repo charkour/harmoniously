@@ -1,4 +1,4 @@
-import { Assignments } from "../harmoniously";
+import { Assignments } from "../packages/harmoniously/dist";
 
 // TODO: move this to tests once logic is mostly done.
 export const mathStatOnlyRooms = ["nh251", "nh259", "nh276", "nh261", "nh295"];

@@ -33,6 +33,11 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.ts"
+    }
+  },
   "dependencies": {
     "canvas-confetti": "1.3.2",
     "harmoniously": "^0.1.0"

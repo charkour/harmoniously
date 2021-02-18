@@ -1,5 +1,5 @@
 {
-  "name": "harmoniously",
+  "name": "harmoniously-monorepo",
   "version": "1.0.0",
   "description": "Harmoniously codebase: multi-package repository",
   "keywords": [
@@ -32,6 +32,7 @@
     }
   },
   "devDependencies": {
+    "@types/jest": "26.0.20",
     "husky": "4.3.8",
     "lerna": "3.22.1",
     "prettier": "2.2.1",
