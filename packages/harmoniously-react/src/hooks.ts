@@ -5,8 +5,8 @@ import { Result } from './types';
 
 export const useHarmony = (
   assignments: Assignments,
-  autoRun: boolean,
-  showConfetti: boolean
+  autoRun: boolean = false,
+  showConfetti: boolean = true
 ) => {
   const [res, setRes] = React.useState<Result>(undefined);
   const [loading, setLoading] = React.useState(false);
