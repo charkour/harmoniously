@@ -6,7 +6,7 @@
  * @return {any}
  * Ref: https://stackoverflow.com/a/39838385/9931154
  */
-const flatMap = <T>(f: (d: T) => any, xs: any[]) => {
+const flatMap = <T>(f: (d: T) => any, xs: any[]): any => {
   return xs.reduce((acc: any, x: any) => {
     return acc.concat(f(x));
   }, []);
@@ -18,7 +18,7 @@ const flatMap = <T>(f: (d: T) => any, xs: any[]) => {
  * @return {any[]}
  * Ref: https://stackoverflow.com/a/60677733/9931154
  */
-const flat = <T>(arr: T[]) => {
+const flat = <T>(arr: T[]): any[] => {
   return Array.prototype.concat.apply([], arr);
 };
 

@@ -5,7 +5,12 @@ import 'rsuite/dist/styles/rsuite-default.css';
 import Button from 'rsuite/lib/Button';
 import Loader from 'rsuite/lib/Loader';
 import { userConstraints, userConstraintsSmall } from '../../../shared/shared';
-import { CustomButtonProps, CustomResultProps, Harmony, Props } from '../src';
+import {
+  CustomButtonProps,
+  CustomResultProps,
+  Harmony,
+  HarmonyProps,
+} from '../src';
 
 const meta: Meta = {
   title: 'Welcome',
@@ -24,7 +29,9 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<Props> = (args: Props) => <Harmony {...args} />;
+const Template: Story<HarmonyProps> = (args: HarmonyProps) => (
+  <Harmony {...args} />
+);
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing
