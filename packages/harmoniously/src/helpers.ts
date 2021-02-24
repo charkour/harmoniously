@@ -7,17 +7,10 @@ import { cartesian } from "./utils";
 
  */
 export const getPossibleDomainValues = (assignments: Assignments) => {
-  // const possibleDomainValues: LooseObject<ClassAttributes[]> = {};
   const possibleDomainValues: LooseObject<string[][]> = {};
   getVariables(assignments).forEach((variable: string) => {
-    const { times, rooms, professor } = assignments[variable];
-    const product = cartesian([times, rooms, [professor]]);
-    // const possibleDomains: ClassAttributes[] = [];
-    // product.forEach((attrTuple) => {
-    //   const [time, room, professor] = attrTuple;
-    //   possibleDomains.push(({ time, room, professor } as unknown) as ClassAttributes);
-    // });
-    // possibleDomainValues[variable] = possibleDomains;
+    const { times, rooms, professors } = assignments[variable];
+    const product = cartesian([times, rooms, professors]);
     possibleDomainValues[variable] = product;
   });
   return possibleDomainValues;
@@ -34,6 +27,7 @@ export const getNeighbors = <T extends Array<string>>(variables: T) => {
 };
 
 // TODO: make the attributes type and object and not an array
+// TODO: might need to update this to support professor as an array
 export const constraints = (
   class1: string,
   c1Attributes: string[],
@@ -72,8 +66,10 @@ export const getVariables = (assignments: Assignments): string[] => {
 // Returns a list of faculty derived from the assignments.
 export const getFaculty = (assignments: Assignments) => {
   const professorSet = new Set<string>();
-  Object.values(assignments).forEach(({ professor }) => {
-    professorSet.add(professor);
+  Object.values(assignments).forEach(({ professors }) => {
+    professors.forEach((professor) => {
+      professorSet.add(professor);
+    });
   });
   return Array.from(professorSet);
 };

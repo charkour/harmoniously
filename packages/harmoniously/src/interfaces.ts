@@ -18,7 +18,7 @@ export interface LooseObject<T> {
  * @interface ClassLimits
  */
 export interface ClassLimits {
-  professor: string;
+  professors: string[];
   rooms: string[];
   times: string[];
 }
