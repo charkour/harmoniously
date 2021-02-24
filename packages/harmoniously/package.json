@@ -2,6 +2,19 @@
   "name": "harmoniously",
   "version": "0.0.2-alpha.0",
   "private": false,
+  "description": "🎶🔥 utilities for quickly create faculty schedules without conflict",
+  "keywords": [
+    "harmoniously",
+    "scheduler"
+  ],
+  "homepage": "https://github.com/charkour/harmoniously#readme",
+  "bugs": {
+    "url": "https://github.com/charkour/harmoniously/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charkour/harmoniously.git"
+  },
   "license": "MIT",
   "author": "Charles Kornoelje",
   "main": "dist/index.js",
