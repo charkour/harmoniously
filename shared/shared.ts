@@ -32,6 +32,14 @@ export const times = [
   "tth1030",
 ];
 
+export const trivialConstraints: Assignments = {
+  "1": { times, professors: ["A", "B"], rooms: csRooms },
+  "2": { times, professors: ["A"], rooms: csRooms },
+  "3": { times, professors: ["B"], rooms: csRooms },
+  "4": { times, professors: ["C"], rooms: csRooms },
+  "5": { times, professors: ["C", "A"], rooms: csLabRooms },
+};
+
 // TODO: make professor field an array.
 // TODO: add more fields to ClassLimits that are appropriate.
 export const userConstraintsSmall: Assignments = {
