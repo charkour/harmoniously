@@ -30,6 +30,10 @@ npm i @harmoniously/react
 <a href="" disabled><img src="https://img.shields.io/badge/node-%3E%3D10-blue.svg?cacheSeconds=2592000" alt="node >= 10"></a>
 <a href="https://www.npmjs.com/package/@harmoniously/react"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@harmoniously/react"></a>
 
+## API
+
+_coming soon. still a work in progress_
+
 ## Development
 
 ### Available Scripts
