@@ -42,7 +42,7 @@
     "csps": "1.0.5"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "4.9.1",
+    "@size-limit/preset-small-lib": "4.9.2",
     "core-js": "3.8.3",
     "husky": "4.3.7",
     "size-limit": "4.9.1",
