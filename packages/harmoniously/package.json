@@ -42,13 +42,13 @@
     "csps": "1.0.5"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.9.1",
+    "@size-limit/preset-small-lib": "4.9.1",
     "core-js": "3.8.3",
-    "husky": "^4.3.7",
-    "size-limit": "^4.9.1",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.1.0",
-    "typescript": "^4.1.3"
+    "husky": "4.3.7",
+    "size-limit": "4.9.1",
+    "tsdx": "0.14.1",
+    "tslib": "2.1.0",
+    "typescript": "4.1.3"
   },
   "engines": {
     "node": ">=10"
