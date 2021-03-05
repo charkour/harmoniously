@@ -67,7 +67,7 @@ export const getVariables = (assignments: Assignments): string[] => {
 export const getFaculty = (assignments: Assignments) => {
   const professorSet = new Set<string>();
   Object.values(assignments).forEach(({ professors }) => {
-    professors.forEach((professor) => {
+    professors.forEach((professor: string) => {
       professorSet.add(professor);
     });
   });
