@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "lib": ["dom", "esnext"]
+    "lib": ["dom", "esnext"],
+    "paths": {
+      "tslib": ["./node_modules/tslib/tslib.d.ts"]
+    },
+    "moduleResolution": "node"
   }
 }
