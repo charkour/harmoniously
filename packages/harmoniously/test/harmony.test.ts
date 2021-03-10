@@ -1,4 +1,4 @@
-import { trivialConstraints } from "../../../shared";
+import { trivialConstraints } from "@harmoniously/shared";
 import { harmony } from "../src/harmony";
 describe("dumb test", () => {
   it("passes", () => {

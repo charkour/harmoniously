@@ -1,4 +1,4 @@
-import { Assignments, LooseObject } from "./interfaces";
+import { Assignments, LooseObject } from "@harmoniously/types";
 import { cartesian } from "./utils";
 
 /**

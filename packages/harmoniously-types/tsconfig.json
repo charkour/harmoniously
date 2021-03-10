@@ -31,11 +31,5 @@
     "forceConsistentCasingInFileNames": true,
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
     "noEmit": true,
-    // Use to load local dependents
-    "baseUrl": ".",
-    "paths": {
-      "@harmoniously/shared": ["../harmoniously-shared/dist"],
-      "@harmoniously/types": ["../harmoniously-types/dist"]
-    }
   }
 }

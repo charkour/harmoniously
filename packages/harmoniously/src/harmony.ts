@@ -1,6 +1,6 @@
+import { Assignments } from "@harmoniously/types";
 import { CSP, min_conflicts as minConflicts } from "csps";
 import { constraints, getNeighbors, getPossibleDomainValues, getVariables } from "./helpers";
-import { Assignments } from "./interfaces";
 
 export const harmony = (
   assignments: Assignments,

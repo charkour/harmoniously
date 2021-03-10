@@ -1,6 +1,6 @@
+import { userConstraintsSmall } from '@harmoniously/shared';
 import React from 'react';
 import * as ReactDOM from 'react-dom';
-import { userConstraintsSmall } from '../../../shared/shared';
 import { Default as Harmony } from '../stories/Harmony.stories';
 
 describe('Harmony', () => {

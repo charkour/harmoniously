@@ -34,7 +34,8 @@
     // Use to load local dependents
     "baseUrl": ".",
     "paths": {
-      "harmoniously": ["../harmoniously/dist"]
+      "harmoniously": ["../harmoniously/dist"],
+      "@harmoniously/shared": ["../harmoniously-shared/dist"]
     }
   }
 }

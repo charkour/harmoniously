@@ -1,10 +1,10 @@
+import { userConstraints, userConstraintsSmall } from '@harmoniously/shared';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 // Provides nice styles for storybook demos.
 import 'rsuite/dist/styles/rsuite-default.css';
 import Button from 'rsuite/lib/Button';
 import Loader from 'rsuite/lib/Loader';
-import { userConstraints, userConstraintsSmall } from '../../../shared/shared';
 import {
   CustomButtonProps,
   CustomResultProps,

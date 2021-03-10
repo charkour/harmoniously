@@ -1,0 +1,59 @@
+{
+  "name": "@harmoniously/shared",
+  "version": "0.0.3-alpha.0",
+  "private": false,
+  "license": "MIT",
+  "author": "Charles Kornoelje",
+  "main": "dist/index.js",
+  "module": "dist/shared.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "analyze": "size-limit --why",
+    "build": "tsdx build",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "start": "tsdx watch",
+    "test": "tsdx test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "dependencies": {
+    "@harmoniously/types": "0.0.3-alpha.0"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.10.1",
+    "husky": "^5.1.3",
+    "size-limit": "^4.10.1",
+    "tsdx": "^0.14.1",
+    "tslib": "2.1.0",
+    "typescript": "^4.2.3"
+  },
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=10"
+  },
+  "size-limit": [
+    {
+      "path": "dist/shared.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/shared.esm.js",
+      "limit": "10 KB"
+    }
+  ]
+}
