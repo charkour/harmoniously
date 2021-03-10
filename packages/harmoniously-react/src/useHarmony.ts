@@ -25,7 +25,7 @@ export const useHarmony = (
       });
     }
     setLoading(false);
-  }, [assignments]);
+  }, [assignments, showConfetti]);
 
   React.useEffect(() => {
     if (autoRun) {
