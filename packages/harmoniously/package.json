@@ -1,6 +1,6 @@
 {
   "name": "harmoniously",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "description": "🎶🔥 utilities for quickly create faculty schedules without conflict",
   "keywords": [
@@ -40,11 +40,11 @@
     }
   },
   "dependencies": {
-    "@harmoniously/types": "0.0.4",
+    "@harmoniously/types": "^0.0.5",
     "csps": "1.0.5"
   },
   "devDependencies": {
-    "@harmoniously/shared": "0.0.4",
+    "@harmoniously/shared": "^0.0.5",
     "@size-limit/preset-small-lib": "4.9.2",
     "core-js": "3.8.3",
     "husky": "4.3.7",
