@@ -5,7 +5,8 @@
   "description": "🎶🔥 utilities for quickly create faculty schedules without conflict",
   "keywords": [
     "harmoniously",
-    "scheduler"
+    "scheduler",
+    "core"
   ],
   "homepage": "https://github.com/charkour/harmoniously#readme",
   "bugs": {

@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "canvas-confetti": "1.3.3",
-    "harmoniously": "^0.0.3-alpha.0"
+    "harmoniously": "0.0.3-alpha.0"
   },
   "devDependencies": {
     "@babel/core": "7.12.10",

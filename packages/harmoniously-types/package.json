@@ -1,6 +1,21 @@
 {
   "name": "@harmoniously/types",
   "version": "0.0.3-alpha.0",
+  "private": false,
+  "description": "🎶🔥 shared types for harmoniously",
+  "keywords": [
+    "harmoniously",
+    "scheduler",
+    "types"
+  ],
+  "homepage": "https://github.com/charkour/harmoniously#readme",
+  "bugs": {
+    "url": "https://github.com/charkour/harmoniously/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charkour/harmoniously.git"
+  },
   "license": "MIT",
   "author": "Charles Kornoelje",
   "main": "dist/index.js",
