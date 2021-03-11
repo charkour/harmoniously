@@ -1,12 +1,12 @@
-import confetti from 'canvas-confetti';
-import { Assignments, harmony } from 'harmoniously';
-import React from 'react';
-import { Result } from './types';
+import confetti from "canvas-confetti";
+import { Assignments, harmony } from "harmoniously";
+import React from "react";
+import { Result } from "./types";
 
 export const useHarmony = (
   assignments: Assignments,
   autoRun: boolean = false,
-  showConfetti: boolean = true
+  showConfetti: boolean = true,
 ) => {
   const [res, setRes] = React.useState<Result>(undefined);
   const [loading, setLoading] = React.useState(false);

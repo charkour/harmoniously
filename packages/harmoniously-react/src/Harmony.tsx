@@ -1,7 +1,7 @@
-import { Assignments } from 'harmoniously';
-import React, { HTMLAttributes, ReactNode } from 'react';
-import { CustomButtonProps, CustomResultProps } from './types';
-import { useHarmony } from './useHarmony';
+import { Assignments } from "harmoniously";
+import React, { HTMLAttributes, ReactNode } from "react";
+import { CustomButtonProps, CustomResultProps } from "./types";
+import { useHarmony } from "./useHarmony";
 
 // TODO: document!
 export interface HarmonyProps extends HTMLAttributes<HTMLDivElement> {
@@ -36,11 +36,7 @@ export const Harmony: React.VFC<HarmonyProps> = ({
   showRunCount = false,
   confetti = true,
 }) => {
-  const { findSchedule, loading, res, runCount } = useHarmony(
-    assignments,
-    autoRun,
-    confetti
-  );
+  const { findSchedule, loading, res, runCount } = useHarmony(assignments, autoRun, confetti);
 
   return (
     <>
@@ -48,7 +44,7 @@ export const Harmony: React.VFC<HarmonyProps> = ({
         <h1>
           <span role="img" aria-label="musical notes">
             🎶
-          </span>{' '}
+          </span>{" "}
           Harmoniously
         </h1>
       )}
@@ -71,11 +67,11 @@ export const Harmony: React.VFC<HarmonyProps> = ({
                     <>
                       <b>Results: </b>
                       {loading ? (
-                        'loading...'
+                        "loading..."
                       ) : (
                         <>
                           {res === undefined
-                            ? 'no non-conflicting schedule found'
+                            ? "no non-conflicting schedule found"
                             : JSON.stringify(res)}
                         </>
                       )}
@@ -90,7 +86,7 @@ export const Harmony: React.VFC<HarmonyProps> = ({
       </div>
       {footer || (
         <small>
-          powered by{' '}
+          powered by{" "}
           <a href="https://github.com/charkour/csps">
             <code>csps</code>
           </a>

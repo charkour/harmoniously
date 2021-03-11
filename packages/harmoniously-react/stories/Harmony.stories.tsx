@@ -1,24 +1,19 @@
-import { userConstraints, userConstraintsSmall } from '@harmoniously/shared';
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import { userConstraints, userConstraintsSmall } from "@harmoniously/shared";
+import { Meta, Story } from "@storybook/react";
+import React from "react";
 // Provides nice styles for storybook demos.
-import 'rsuite/dist/styles/rsuite-default.css';
-import Button from 'rsuite/lib/Button';
-import Loader from 'rsuite/lib/Loader';
-import {
-  CustomButtonProps,
-  CustomResultProps,
-  Harmony,
-  HarmonyProps,
-} from '../src';
+import "rsuite/dist/styles/rsuite-default.css";
+import Button from "rsuite/lib/Button";
+import Loader from "rsuite/lib/Loader";
+import { CustomButtonProps, CustomResultProps, Harmony, HarmonyProps } from "../src";
 
 const meta: Meta = {
-  title: 'Welcome',
+  title: "Welcome",
   component: Harmony,
   argTypes: {
     children: {
       control: {
-        type: 'text',
+        type: "text",
       },
     },
   },
@@ -29,9 +24,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<HarmonyProps> = (args: HarmonyProps) => (
-  <Harmony {...args} />
-);
+const Template: Story<HarmonyProps> = (args: HarmonyProps) => <Harmony {...args} />;
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing
@@ -59,7 +52,7 @@ const CustomResult = (props: CustomResultProps) => {
       ) : (
         <div>
           {res === undefined
-            ? 'no non-conflicting schedule found! oh no'
+            ? "no non-conflicting schedule found! oh no"
             : JSON.stringify(res, null, 2)}
         </div>
       )}
@@ -78,7 +71,7 @@ Custom.args = {
   header: <h1>Schedulizer</h1>,
   footer: (
     <small>
-      Powered by{' '}
+      Powered by{" "}
       <a href="https://github.com/charkour/csps">
         <code>csps</code>
       </a>
