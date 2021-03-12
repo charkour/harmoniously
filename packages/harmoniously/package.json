@@ -46,7 +46,7 @@
   "devDependencies": {
     "@harmoniously/shared": "0.0.5",
     "@size-limit/preset-small-lib": "4.10.1",
-    "core-js": "3.8.3",
+    "core-js": "3.9.1",
     "husky": "4.3.7",
     "size-limit": "4.10.1",
     "tsdx": "0.14.1",
