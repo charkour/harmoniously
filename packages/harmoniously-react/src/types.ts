@@ -1,6 +1,5 @@
-import { LooseObject } from "harmoniously";
+import { Result } from "harmoniously";
 
-export type Result = LooseObject<string[]> | undefined;
 export interface CustomButtonProps {
   onClick: () => void;
 }

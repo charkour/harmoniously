@@ -1,4 +1,4 @@
-import { Assignments } from "@harmoniously/types";
+import { Assignments, Result } from "@harmoniously/types";
 import { CSP, min_conflicts as minConflicts } from "csps";
 import { constraints, getNeighbors, getPossibleDomainValues, getVariables } from "./helpers";
 
@@ -17,7 +17,7 @@ export const harmony = (
   const neighbors = getNeighbors(variables);
 
   const aCSP = new CSP<string>(variables, domains, neighbors, constraintFunction);
-  const res = minConflicts(aCSP);
+  const res: Result = minConflicts(aCSP) as Result;
 
   if (debug) {
     console.log(variables);

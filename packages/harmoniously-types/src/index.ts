@@ -18,20 +18,15 @@ export interface LooseObject<T> {
  * @interface ClassLimits
  */
 export interface ClassLimits {
-  professors: string[];
-  rooms: string[];
-  times: string[];
+  professors: ClassAttributes['professor'][];
+  rooms: ClassAttributes['room'][];
+  times: ClassAttributes['time'][];
 }
-
 export interface ClassAttributes {
   professor: string;
   room: string;
   time: string;
 }
-// export interface ClassAttributes extends Array<string> {
-//   professor: string;
-//   room: string;
-//   time: string;
-// }
 
-export type Assignments = LooseObject<ClassLimits>;
+export declare type Assignments = LooseObject<ClassLimits>;
+export declare type Result = LooseObject<ClassAttributes> | undefined;

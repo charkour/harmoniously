@@ -1,7 +1,6 @@
 import confetti from "canvas-confetti";
-import { Assignments, harmony } from "harmoniously";
+import { Assignments, harmony, Result } from "harmoniously";
 import React from "react";
-import { Result } from "./types";
 
 export const useHarmony = (
   assignments: Assignments,
@@ -14,7 +13,7 @@ export const useHarmony = (
 
   const findSchedule = React.useCallback(() => {
     setLoading(true);
-    const result = harmony(assignments, undefined, undefined);
+    const result: Result = harmony(assignments, undefined, undefined);
     setRunCount((prev: number) => prev + 1);
     setRes(result);
     if (result !== undefined && showConfetti) {
