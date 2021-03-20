@@ -1,17 +1,12 @@
-import { Assignments } from "harmoniously";
-import React, { HTMLAttributes, ReactNode } from "react";
+import { Assignments, Result } from "harmoniously";
+import React, { HTMLAttributes, ReactNode, useEffect } from "react";
 import { CustomButtonProps, CustomResultProps } from "./types";
 import { useHarmony } from "./useHarmony";
 
 // TODO: document!
 export interface HarmonyProps extends HTMLAttributes<HTMLDivElement> {
   assignments: Assignments;
-  /**
-   * Will aromatically find a schedule if true.
-   *
-   * @type {boolean}
-   * @memberof Props
-   */
+  /** Will automatically find a schedule if true. */
   autoRun?: boolean;
   button?: (props: CustomButtonProps) => JSX.Element;
   result?: (props: CustomResultProps) => JSX.Element;
@@ -19,6 +14,7 @@ export interface HarmonyProps extends HTMLAttributes<HTMLDivElement> {
   footer?: ReactNode;
   showRunCount?: boolean;
   confetti?: boolean;
+  setResult?: React.Dispatch<React.SetStateAction<Result>>;
 }
 
 // Please do not use types off of a default export module or else Storybook Docs will suffer.
@@ -35,8 +31,13 @@ export const Harmony: React.VFC<HarmonyProps> = ({
   result,
   showRunCount = false,
   confetti = true,
+  setResult = undefined,
 }) => {
   const { findSchedule, loading, res, runCount } = useHarmony(assignments, autoRun, confetti);
+
+  useEffect(() => {
+    setResult && setResult(res);
+  }, [setResult, res]);
 
   return (
     <>
