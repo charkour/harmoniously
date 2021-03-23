@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@harmoniously/types": "^0.0.8",
-    "csps": "1.0.5"
+    "csps": "2.0.1"
   },
   "devDependencies": {
     "@harmoniously/shared": "^0.0.8",

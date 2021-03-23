@@ -1,17 +1,25 @@
-import { Assignments, LooseObject } from "@harmoniously/types";
+import { Assignments, ClassAttributes, LooseObject } from "@harmoniously/types";
+import { CurrentDomain } from "csps";
 import { cartesian } from "./utils";
 
 /**
- * TODO: update this.
  * Get the cartesian product of all possible attribute tuples.
-
  */
 export const getPossibleDomainValues = (assignments: Assignments) => {
-  const possibleDomainValues: LooseObject<string[][]> = {};
+  const possibleDomainValues: CurrentDomain<ClassAttributes[]> = {};
+  const possibleDomains: ClassAttributes[] = [];
   getVariables(assignments).forEach((variable: string) => {
+    // TODO: make this more generic to allow people to override this.
     const { times, rooms, professors } = assignments[variable];
     const product = cartesian([times, rooms, professors]);
-    possibleDomainValues[variable] = product;
+    product.forEach((item: string[]) => {
+      possibleDomains.push({
+        time: item[0],
+        room: item[1],
+        professor: item[2],
+      });
+    });
+    possibleDomainValues[variable] = possibleDomains;
   });
   return possibleDomainValues;
 };
@@ -26,13 +34,12 @@ export const getNeighbors = <T extends Array<string>>(variables: T) => {
   return neighbors;
 };
 
-// TODO: make the attributes type and object and not an array
 // TODO: might need to update this to support professor as an array
 export const constraints = (
   class1: string,
-  c1Attributes: string[],
+  c1Attributes: ClassAttributes,
   class2: string,
-  c2Attributes: string[],
+  c2Attributes: ClassAttributes,
 ): boolean => {
   /*
     Constraints for class scheduling
@@ -47,18 +54,21 @@ export const constraints = (
   }
 
   // Check to make sure faculty is not teaching at the same time
-  if (c1Attributes[0] === c2Attributes[0] && c1Attributes[2] === c2Attributes[2]) {
+  if (
+    c1Attributes.time === c2Attributes.time &&
+    c1Attributes.professor === c2Attributes.professor
+  ) {
     return false;
   }
 
   // Check to make sure class is not in the same room at the same time
-  if (c1Attributes[0] === c2Attributes[0] && c1Attributes[1] === c2Attributes[1]) {
+  if (c1Attributes.time === c2Attributes.time && c1Attributes.room === c2Attributes.room) {
     return false;
   }
   return true;
 };
 
-// """returns the keys, which are the variables in the CSP"""
+// returns the keys, which are the variables in the CSP
 export const getVariables = (assignments: Assignments): string[] => {
   return Object.keys(assignments);
 };
