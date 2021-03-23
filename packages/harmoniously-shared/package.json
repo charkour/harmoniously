@@ -1,6 +1,6 @@
 {
   "name": "@harmoniously/shared",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": false,
   "description": "🎶🔥 shared files for harmoniously dev testing",
   "keywords": [
@@ -46,7 +46,7 @@
     "trailingComma": "es5"
   },
   "dependencies": {
-    "@harmoniously/types": "^0.0.9"
+    "@harmoniously/types": "^0.0.10"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "4.10.1",
