@@ -21,6 +21,7 @@ npm i harmoniously
 <a href="https://www.npmjs.com/package/harmoniously"><img alt="npm" src="https://img.shields.io/npm/v/harmoniously"></a>
 <a href="" disabled><img src="https://img.shields.io/badge/node-%3E%3D10-blue.svg?cacheSeconds=2592000" alt="node >= 10"></a>
 <a href="https://www.npmjs.com/package/harmoniously"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/harmoniously"></a>
+[![Downloads](https://img.shields.io/npm/dt/harmoniously.svg)](https://www.npmjs.com/package/harmoniously)
 
 ### [`@harmoniously/react`](./packages/harmoniously-react)
 
@@ -35,6 +36,7 @@ npm i @harmoniously/react
 <a href="https://www.npmjs.com/package/@harmoniously/react"><img alt="npm" src="https://img.shields.io/npm/v/@harmoniously/react"></a>
 <a href="" disabled><img src="https://img.shields.io/badge/node-%3E%3D10-blue.svg?cacheSeconds=2592000" alt="node >= 10"></a>
 <a href="https://www.npmjs.com/package/@harmoniously/react"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@harmoniously/react"></a>
+[![Downloads](https://img.shields.io/npm/dt/@harmoniously/react.svg)](https://www.npmjs.com/package/@harmoniously/react)
 
 ### [`@harmoniously/shared`](./packages/harmoniously-shared)
 
@@ -46,6 +48,8 @@ install [via npm](https://www.npmjs.com/package/@harmoniously/shared):
 npm i @harmoniously/shared
 ```
 
+[![Downloads](https://img.shields.io/npm/dt/@harmoniously/shared.svg)](https://www.npmjs.com/package/@harmoniously/shared)
+
 ### [`@harmoniously/types`](./packages/harmoniously-shared)
 
 Shared types for the [`harmoniously`](https://www.npmjs.com/package/harmoniously) packages
@@ -55,6 +59,8 @@ install [via npm](https://www.npmjs.com/package/@harmoniously/types):
 ```sh
 npm i @harmoniously/types
 ```
+
+[![Downloads](https://img.shields.io/npm/dt/@harmoniously/types.svg)](https://www.npmjs.com/package/@harmoniously/types)
 
 ## API
 
