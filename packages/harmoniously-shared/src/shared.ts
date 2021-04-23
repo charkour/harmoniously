@@ -1,7 +1,5 @@
 import { Assignments } from '@harmoniously/types';
 
-// export type Assignments = LooseObject<ClassLimits>;
-
 export const mathStatOnlyRooms = ['nh251', 'nh259', 'nh276', 'nh261', 'nh295'];
 export const csOnlyRooms = [
   'sb372',
@@ -50,7 +48,6 @@ export const trivialConstraints: Assignments = {
   '5': { times, professors: ['C', 'A'], rooms: csLabRooms },
 };
 
-// TODO: make professor field an array.
 // TODO: add more fields to ClassLimits that are appropriate.
 export const userConstraintsSmall: Assignments = {
   cs100a: { times, professors: ['meyer'], rooms: csRooms },
@@ -169,7 +166,6 @@ export const userConstraints: Assignments = {
   stat343a: { times, professors: ['pruim'], rooms: mathStatRooms },
   stat344a: { times, professors: ['deruiter'], rooms: mathStatRooms },
   stat390a: { times, professors: ['pruim'], rooms: mathStatRooms },
-  // // # TODO: add engineering classes and cognates
   // bio115a: "miller",
   // bio123a: "miller",
   // bio141a: "shen",
