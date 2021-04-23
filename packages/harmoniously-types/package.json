@@ -46,7 +46,7 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "4.10.1",
+    "@size-limit/preset-small-lib": "4.10.2",
     "husky": "5.1.3",
     "size-limit": "4.10.1",
     "tsdx": "0.14.1",
