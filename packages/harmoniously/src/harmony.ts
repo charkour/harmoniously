@@ -1,23 +1,33 @@
-import { Assignments, ClassAttributes, Result } from "@harmoniously/types";
+import { LooseObject } from "@harmoniously/types";
 import { CSP, CurrentDomain, min_conflicts as minConflicts, Variable } from "csps";
-import { constraints, getNeighbors, getPossibleDomainValues, getVariables } from "./helpers";
+import { getNeighbors, getPossibleDomainValues, getVariables } from "./helpers";
 
-export const harmony = (
-  assignments: Assignments,
+export const harmony = <
+  TAttributes extends { [key: string]: string },
+  JLimits extends { [P in TAttributes as string | number | symbol]: string[] },
+  KAssignments extends LooseObject<JLimits>
+>(
+  assignments: KAssignments,
+  getPossibleDomainValuesCb: (variable: string, assignments: KAssignments) => void,
+  possibleDomainValues: CurrentDomain<TAttributes[]>,
   constraintFunction: (
     class1: string,
-    c1Attributes: ClassAttributes,
+    c1Attributes: TAttributes,
     class2: string,
-    c2Attributes: ClassAttributes,
-  ) => boolean = constraints,
+    c2Attributes: TAttributes,
+  ) => boolean,
   debug: boolean = false,
 ) => {
   const variables: Variable[] = getVariables(assignments);
-  const domains: CurrentDomain<ClassAttributes[]> = getPossibleDomainValues(assignments);
+  const domains: CurrentDomain<TAttributes[]> = getPossibleDomainValues(
+    assignments,
+    getPossibleDomainValuesCb,
+    possibleDomainValues,
+  );
   const neighbors = getNeighbors(variables);
 
-  const aCSP = new CSP<ClassAttributes>(variables, domains, neighbors, constraintFunction);
-  const res: Result = minConflicts(aCSP);
+  const aCSP = new CSP<TAttributes>(variables, domains, neighbors, constraintFunction);
+  const res: LooseObject<TAttributes> | undefined = minConflicts(aCSP);
 
   if (debug) {
     console.log(variables);
