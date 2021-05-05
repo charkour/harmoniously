@@ -12,7 +12,8 @@
     "lint": "lerna run lint",
     "publish": "lerna publish",
     "test": "lerna run test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "version": "lerna clean --yes && lerna exec \"npm install --ignore-scripts --package-lock-only --no-audit\" && git add packages/*/package-lock.json"
   },
   "devDependencies": {
     "@types/jest": "26.0.23",
