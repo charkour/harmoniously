@@ -64,5 +64,6 @@
       "path": "dist/shared.esm.js",
       "limit": "10 KB"
     }
-  ]
+  ],
+  "gitHead": "1873faba9ebd3f41a1982ee5ae058e86247d4ed8"
 }
