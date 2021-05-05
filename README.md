@@ -10,7 +10,7 @@ This is the monoreposity for the Harmoniously project. The `packages/` directory
 
 ### [`harmoniously`](./packages/harmoniously)
 
-Provides utilities to make scheduling easy while using constraint satisfaction techniques
+> Provides utilities to make scheduling easy while using constraint satisfaction techniques
 
 install [via npm](https://www.npmjs.com/package/harmoniously):
 
@@ -25,7 +25,7 @@ npm i harmoniously
 
 ### [`@harmoniously/react`](./packages/harmoniously-react)
 
-React component and `useHarmony` hook for [`harmoniously`](https://www.npmjs.com/package/harmoniously)
+> React component and `useHarmony` hook for [`harmoniously`](https://www.npmjs.com/package/harmoniously)
 
 install [via npm](https://www.npmjs.com/package/@harmoniously/react):
 
@@ -40,7 +40,7 @@ npm i @harmoniously/react
 
 ### [`@harmoniously/shared`](./packages/harmoniously-shared)
 
-Helpers for testing in development [`harmoniously`](https://www.npmjs.com/package/harmoniously)
+> Helpers for testing in development [`harmoniously`](https://www.npmjs.com/package/harmoniously)
 
 install [via npm](https://www.npmjs.com/package/@harmoniously/shared):
 
@@ -52,7 +52,7 @@ npm i @harmoniously/shared
 
 ### [`@harmoniously/types`](./packages/harmoniously-shared)
 
-Shared types for the [`harmoniously`](https://www.npmjs.com/package/harmoniously) packages
+> Shared types for the [`harmoniously`](https://www.npmjs.com/package/harmoniously) packages
 
 install [via npm](https://www.npmjs.com/package/@harmoniously/types):
 
