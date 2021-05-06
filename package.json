@@ -11,7 +11,7 @@
     "create": "lerna create",
     "lint": "lerna run lint",
     "publish": "lerna publish",
-    "postpublish": "normal-install",
+    "postpublish": "normal-install && git add .",
     "test": "lerna run test",
     "prepare": "husky install",
     "normal-install": "lerna exec npm i"
