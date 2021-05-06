@@ -1,6 +1,6 @@
 {
   "name": "@harmoniously/react",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": false,
   "description": "🎶🔥 react bindings for harmoniously",
   "keywords": [
@@ -74,6 +74,7 @@
   "engines": {
     "node": ">=10"
   },
+  "gitHead": "1873faba9ebd3f41a1982ee5ae058e86247d4ed8",
   "size-limit": [
     {
       "path": "dist/react.cjs.production.min.js",
@@ -83,6 +84,5 @@
       "path": "dist/react.esm.js",
       "limit": "10 KB"
     }
-  ],
-  "gitHead": "1873faba9ebd3f41a1982ee5ae058e86247d4ed8"
+  ]
 }
