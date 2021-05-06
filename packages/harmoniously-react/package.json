@@ -43,11 +43,11 @@
   },
   "dependencies": {
     "canvas-confetti": "1.4.0",
-    "harmoniously": "^0.2.3"
+    "harmoniously": "^0.2.1"
   },
   "devDependencies": {
     "@babel/core": "7.14.0",
-    "@harmoniously/shared": "^0.2.3",
+    "@harmoniously/shared": "^0.2.1",
     "@size-limit/preset-small-lib": "4.10.2",
     "@storybook/addon-essentials": "6.2.9",
     "@storybook/addon-info": "5.3.21",

@@ -36,11 +36,11 @@
     "test": "tsdx test"
   },
   "dependencies": {
-    "@harmoniously/types": "^0.2.3",
+    "@harmoniously/types": "^0.2.1",
     "csps": "2.0.2"
   },
   "devDependencies": {
-    "@harmoniously/shared": "^0.2.3",
+    "@harmoniously/shared": "^0.2.1",
     "@size-limit/preset-small-lib": "4.10.2",
     "core-js": "3.11.3",
     "husky": "6.0.0",

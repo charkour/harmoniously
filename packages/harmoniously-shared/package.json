@@ -41,7 +41,7 @@
     "trailingComma": "es5"
   },
   "dependencies": {
-    "@harmoniously/types": "^0.2.3"
+    "@harmoniously/types": "^0.2.1"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "4.10.2",
