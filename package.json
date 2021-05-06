@@ -11,9 +11,10 @@
     "create": "lerna create",
     "lint": "lerna run lint",
     "publish": "lerna publish",
+    "postpublish": "normal-install",
     "test": "lerna run test",
     "prepare": "husky install",
-    "version": "lerna clean --yes && lerna bootstrap && git add packages/*/package-lock.json"
+    "normal-install": "lerna exec npm i"
   },
   "devDependencies": {
     "@types/jest": "26.0.23",
