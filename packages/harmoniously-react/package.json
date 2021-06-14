@@ -46,7 +46,7 @@
     "harmoniously": "^0.2.4"
   },
   "devDependencies": {
-    "@babel/core": "7.14.0",
+    "@babel/core": "7.14.6",
     "@harmoniously/shared": "^0.2.4",
     "@size-limit/preset-small-lib": "4.10.2",
     "@storybook/addon-essentials": "6.2.9",
